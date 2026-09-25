@@ -27,8 +27,17 @@ jobs:
       - name: Setup Pages
         uses: actions/configure-pages@v5
 
+      - name: Validate static site
+        run: |
+          test -s index.html
+          test -s admin.html
+          test -s robots.txt
+          grep -q "JFS AI" index.html
+          grep -q "wa.me/6285806125596" index.html
+          grep -q "portfolio_items" index.html
+
       - name: Upload site
-        uses: actions/upload-pages-artifact@v3
+        uses: actions/upload-pages-artifact@v4
         with:
           path: .
 
