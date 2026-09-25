@@ -1,6 +1,6 @@
 <!doctype html>
 <html lang="id"><head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow,noarchive">
 <title>Portfolio Manager — Pondik Cat Duco</title>
 <script src="https://cdn.tailwindcss.com"></script>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
@@ -8,21 +8,21 @@
 </head><body>
 <header class="border-b border-white/10 bg-zinc-950/95"><div class="mx-auto flex max-w-6xl items-center justify-between px-4 py-4">
 <a href="index.html" class="flex items-center gap-3"><img src="https://raw.githubusercontent.com/JfsAITechnology/jfs-ai-platform/main/jfs-ai-logo.svg" class="h-9 w-9 rounded-lg" alt="JFS AI"><div><b>PONDIK CAT DUCO</b><div class="text-xs text-zinc-500">Portfolio Manager · JFS AI</div></div></a>
-<a href="index.html" class="text-sm text-yellow-300">← Landing</a></div></header>
+<a href="index.html" class="text-sm text-blue-400">← Landing</a></div></header>
 <main class="mx-auto max-w-6xl px-4 py-8">
 <div id="notice" class="mb-5 hidden rounded-xl border px-4 py-3 text-sm"></div>
 <section id="login" class="card mx-auto max-w-lg rounded-3xl p-6">
 <h1 class="text-2xl font-black">Kelola Portfolio</h1><p class="mt-2 text-sm text-zinc-400">Owner/Admin masuk dengan OTP. Super Admin JFS AI dapat memilih tenant.</p>
-<div class="mt-5 grid grid-cols-2 gap-2"><button id="waMode" class="rounded-xl bg-yellow-400 px-3 py-3 text-sm font-black text-black">WhatsApp OTP</button><button id="mailMode" class="rounded-xl border border-white/10 px-3 py-3 text-sm font-bold">Email OTP</button></div>
+<div class="mt-5 grid grid-cols-2 gap-2"><button id="waMode" class="rounded-xl bg-blue-500 px-3 py-3 text-sm font-black text-black">WhatsApp OTP</button><button id="mailMode" class="rounded-xl border border-white/10 px-3 py-3 text-sm font-bold">Email OTP</button></div>
 <input id="identity" class="mt-4 w-full rounded-xl px-4 py-3" value="0858-0612-5596" placeholder="Nomor WhatsApp / email">
-<button id="send" class="mt-4 w-full rounded-xl bg-yellow-400 px-4 py-3 font-black text-black">Kirim OTP</button>
+<button id="send" class="mt-4 w-full rounded-xl bg-blue-500 px-4 py-3 font-black text-black">Kirim OTP</button>
 <div id="otpArea" class="mt-4 hidden"><input id="otp" maxlength="6" inputmode="numeric" class="w-full rounded-xl px-4 py-3 text-center text-2xl tracking-[.4em]" placeholder="000000"><button id="verify" class="mt-3 w-full rounded-xl bg-white px-4 py-3 font-black text-black">Verifikasi</button></div>
 <p class="mt-4 text-xs text-zinc-500">WhatsApp OTP membutuhkan channel WhatsApp Supabase/Twilio yang aktif. Email OTP membutuhkan email yang terdaftar.</p>
 </section>
 <section id="manager" class="hidden">
-<div class="mb-5 flex flex-wrap items-end justify-between gap-3"><div><p class="text-xs font-bold text-yellow-300">PORTFOLIO CMS</p><h1 class="text-3xl font-black">Foto Pekerjaan</h1><p id="identityLabel" class="mt-1 text-sm text-zinc-500"></p></div><button id="logout" class="rounded-xl border border-white/10 px-4 py-2 text-sm">Keluar</button></div>
+<div class="mb-5 flex flex-wrap items-end justify-between gap-3"><div><p class="text-xs font-bold text-blue-400">PORTFOLIO CMS</p><h1 class="text-3xl font-black">Foto Pekerjaan</h1><p id="identityLabel" class="mt-1 text-sm text-zinc-500"></p></div><button id="logout" class="rounded-xl border border-white/10 px-4 py-2 text-sm">Keluar</button></div>
 <div id="tenantBox" class="card mb-5 hidden rounded-2xl p-4"><label class="text-xs text-zinc-500">Super Admin — tenant</label><select id="tenant" class="mt-2 w-full rounded-xl px-4 py-3"></select></div>
-<div class="card rounded-3xl p-5"><div class="flex items-center justify-between gap-3"><div><h2 class="text-xl font-black">Portfolio</h2><p class="text-sm text-zinc-500">Tambah, edit, tampil/sembunyikan, hapus.</p></div><button id="add" class="rounded-xl bg-yellow-400 px-4 py-2 font-black text-black">+ Foto</button></div><div id="items" class="mt-5 grid gap-4 md:grid-cols-2"></div></div>
+<div class="card rounded-3xl p-5"><div class="flex items-center justify-between gap-3"><div><h2 class="text-xl font-black">Portfolio</h2><p class="text-sm text-zinc-500">Tambah, edit, tampil/sembunyikan, hapus.</p></div><button id="add" class="rounded-xl bg-blue-500 px-4 py-2 font-black text-black">+ Foto</button></div><div id="items" class="mt-5 grid gap-4 md:grid-cols-2"></div></div>
 </section>
 </main>
 <div id="modal" class="fixed inset-0 z-50 hidden items-center justify-center bg-black/80 p-4"><div class="card w-full max-w-lg rounded-3xl p-6">
@@ -33,15 +33,15 @@
 <textarea id="desc" rows="3" class="w-full rounded-xl px-4 py-3" placeholder="Deskripsi singkat"></textarea>
 <input id="order" type="number" class="w-full rounded-xl px-4 py-3" value="0" placeholder="Urutan">
 <label class="flex gap-2 text-sm"><input id="active" type="checkbox" checked> Tampilkan di landing page</label>
-<button class="w-full rounded-xl bg-yellow-400 px-4 py-3 font-black text-black">Simpan</button></form></div></div>
+<button class="w-full rounded-xl bg-blue-500 px-4 py-3 font-black text-black">Simpan</button></form></div></div>
 <script>
 const URL='https://evtkeyfjgqwarsmlzrkh.supabase.co',KEY='sb_publishable_7lGio_RVVgkVASYYyBHQIg_GvL-8ELD',PONDIK='06e84dc9-68c3-4ad4-aa1b-06a7c4e46f99';
 const sb=supabase.createClient(URL,KEY);let channel='whatsapp',tenantId=PONDIK,isSuper=false;
 const $=x=>document.getElementById(x);
 function note(t,ok=false){$('notice').textContent=t;$('notice').className='mb-5 rounded-xl border px-4 py-3 text-sm '+(ok?'border-emerald-400/30 text-emerald-300':'border-red-400/30 text-red-300')}
 function phone(v){v=(v||'').replace(/[^0-9+]/g,'');return v.startsWith('0')?'+62'+v.slice(1):v.startsWith('62')?'+'+v:v}
-$('waMode').onclick=()=>{channel='whatsapp';$('identity').value='0858-0612-5596';$('waMode').className='rounded-xl bg-yellow-400 px-3 py-3 text-sm font-black text-black';$('mailMode').className='rounded-xl border border-white/10 px-3 py-3 text-sm font-bold'};
-$('mailMode').onclick=()=>{channel='email';$('identity').value='';$('identity').placeholder='email@domain.com';$('mailMode').className='rounded-xl bg-yellow-400 px-3 py-3 text-sm font-black text-black';$('waMode').className='rounded-xl border border-white/10 px-3 py-3 text-sm font-bold'};
+$('waMode').onclick=()=>{channel='whatsapp';$('identity').value='0858-0612-5596';$('waMode').className='rounded-xl bg-blue-500 px-3 py-3 text-sm font-black text-black';$('mailMode').className='rounded-xl border border-white/10 px-3 py-3 text-sm font-bold'};
+$('mailMode').onclick=()=>{channel='email';$('identity').value='';$('identity').placeholder='email@domain.com';$('mailMode').className='rounded-xl bg-blue-500 px-3 py-3 text-sm font-black text-black';$('waMode').className='rounded-xl border border-white/10 px-3 py-3 text-sm font-bold'};
 $('send').onclick=async()=>{let r=channel==='whatsapp'?await sb.auth.signInWithOtp({phone:phone($('identity').value),options:{channel:'whatsapp',shouldCreateUser:true}}):await sb.auth.signInWithOtp({email:$('identity').value.trim(),options:{shouldCreateUser:false}});if(r.error)return note(r.error.message);$('otpArea').classList.remove('hidden');note('OTP terkirim. Masukkan kode 6 digit.',true)};
 $('verify').onclick=async()=>{let r=channel==='whatsapp'?await sb.auth.verifyOtp({phone:phone($('identity').value),token:$('otp').value.trim(),type:'sms'}):await sb.auth.verifyOtp({email:$('identity').value.trim(),token:$('otp').value.trim(),type:'email'});if(r.error)return note(r.error.message);await start()};
 $('logout').onclick=async()=>{await sb.auth.signOut();location.reload()};$('close').onclick=()=>closeModal();$('add').onclick=()=>openModal();
@@ -51,7 +51,7 @@ window.edit=openModal;
 window.toggle=async(id,v)=>{let r=await sb.from('portfolio_items').update({is_active:v}).eq('id',id).eq('tenant_id',tenantId);if(r.error)note(r.error.message);else load()};
 window.del=async(id,path)=>{if(!confirm('Hapus foto ini?'))return;let r=await sb.from('portfolio_items').delete().eq('id',id).eq('tenant_id',tenantId);if(r.error)return note(r.error.message);if(path)await sb.storage.from('pondik-portfolio').remove([path]);load()};
 async function load(){let r=await sb.from('portfolio_items').select('*').eq('tenant_id',tenantId).order('sort_order').order('created_at',{ascending:false});if(r.error)return note(r.error.message);$('items').innerHTML=(r.data||[]).map(x=>'<article class="overflow-hidden rounded-2xl border border-white/10 bg-zinc-950"><img src="'+x.image_url+'" class="h-48 w-full object-cover"><div class="p-4"><b>'+esc(x.title||'Tanpa judul')+'</b><p class="mt-1 text-xs text-zinc-500">'+(x.is_active?'LIVE':'OFF')+' · urutan '+x.sort_order+'</p><p class="mt-2 text-sm text-zinc-400">'+esc(x.description||'')+'</p><div class="mt-4 flex gap-2"><button onclick=edit('+JSON.stringify(x).replace(/"/g,'&quot;')+') class="rounded-lg border border-white/10 px-3 py-2 text-xs">Edit</button><button onclick=toggle("'+x.id+'",'+(!x.is_active)+') class="rounded-lg border border-white/10 px-3 py-2 text-xs">'+(x.is_active?'Sembunyikan':'Tampilkan')+'</button><button onclick=del("'+x.id+'","'+(x.image_path||'')+'") class="rounded-lg border border-red-400/20 px-3 py-2 text-xs text-red-300">Hapus</button></div></div></article>').join('')||'<div class="p-10 text-center text-sm text-zinc-500 md:col-span-2">Belum ada foto.</div>'}
-function esc(s){return s.replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
+function esc(s){return String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
 $('form').onsubmit=async e=>{e.preventDefault();let id=$('id').value,file=$('file').files[0],url=null,path=null;if(file){if(file.size>10485760)return note('Foto maksimal 10 MB.');let ext=(file.name.split('.').pop()||'jpg').toLowerCase();path=tenantId+'/'+crypto.randomUUID()+'.'+ext;let u=await sb.storage.from('pondik-portfolio').upload(path,file,{contentType:file.type,upsert:false});if(u.error)return note(u.error.message);url=sb.storage.from('pondik-portfolio').getPublicUrl(path).data.publicUrl}
 let p={tenant_id:tenantId,title:$('title').value.trim(),description:$('desc').value.trim()||null,sort_order:Number($('order').value)||0,is_active:$('active').checked};if(url){p.image_url=url;p.image_path=path}
 let r=id?await sb.from('portfolio_items').update(p).eq('id',id).eq('tenant_id',tenantId):await sb.from('portfolio_items').insert({...p,image_url:url||''});if(r.error)return note(r.error.message);closeModal();load()};
