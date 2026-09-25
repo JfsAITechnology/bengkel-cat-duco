@@ -110,7 +110,8 @@ sbScript.onload=async()=>{
     grid.innerHTML='<div class="card rounded-3xl p-8 text-center text-sm text-zinc-400 md:col-span-3">Portfolio sedang disiapkan. Foto pekerjaan Pondik akan tampil di sini.</div>';
     return;
   }
-  grid.innerHTML=data.map(item=>`<article class="group relative overflow-hidden rounded-3xl border border-white/10 bg-zinc-900"><img src="${item.image_url}" alt="${(item.title||'Portfolio Pondik Cat Duco').replace(/"/g,'&quot;')}" class="h-72 w-full object-cover transition duration-500 group-hover:scale-105"><div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black via-black/70 to-transparent p-5 pt-20"><h3 class="font-extrabold">${item.title||'Pondik Cat Duco'}</h3>${item.description?`<p class="mt-1 text-xs text-zinc-300">${item.description}</p>`:''}</div></article>`).join('');
+  const escHtml=(s)=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+  grid.innerHTML=data.map(item=>`<article class="group relative overflow-hidden rounded-3xl border border-white/10 bg-zinc-900"><img src="${escHtml(item.image_url)}" alt="${escHtml(item.title||'Portfolio Pondik Cat Duco')}" class="h-72 w-full object-cover transition duration-500 group-hover:scale-105"><div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black via-black/70 to-transparent p-5 pt-20"><h3 class="font-extrabold">${escHtml(item.title||'Pondik Cat Duco')}</h3>${item.description?`<p class="mt-1 text-xs text-zinc-300">${escHtml(item.description)}</p>`:''}</div></article>`).join('');
 };
 document.getElementById('year').textContent=new Date().getFullYear();
 </script>
