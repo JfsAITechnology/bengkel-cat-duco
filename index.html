@@ -67,11 +67,9 @@ html{scroll-behavior:smooth}body{font-family:Inter,sans-serif;background:#09090b
 </section>
 
 <section id="portfolio" class="mx-auto max-w-7xl px-4 py-14">
-<div class="mb-8 flex items-end justify-between gap-4"><div><p class="text-sm font-bold text-yellow-300">PORTFOLIO</p><h2 class="mt-2 text-3xl font-black">Contoh pekerjaan</h2></div><span class="text-xs text-zinc-500">Gambar demo — ganti dengan foto bengkel asli</span></div>
-<div class="grid gap-4 md:grid-cols-3">
-<img class="h-72 w-full rounded-3xl object-cover" src="https://images.unsplash.com/photo-1542282088-72c9c27ed0cd?auto=format&fit=crop&w=900&q=85" alt="Contoh mobil">
-<img class="h-72 w-full rounded-3xl object-cover" src="https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&w=900&q=85" alt="Contoh mobil">
-<img class="h-72 w-full rounded-3xl object-cover" src="https://images.unsplash.com/photo-1552519507-da3b142c6e3d?auto=format&fit=crop&w=900&q=85" alt="Contoh mobil">
+<div class="mb-8 flex items-end justify-between gap-4"><div><p class="text-sm font-bold text-yellow-300">PORTFOLIO</p><h2 class="mt-2 text-3xl font-black">Contoh pekerjaan</h2></div><a href="admin.html" class="rounded-xl border border-yellow-400/30 bg-yellow-400/10 px-3 py-2 text-xs font-bold text-yellow-300 hover:bg-yellow-400/20">Kelola Portfolio</a></div>
+<div id="portfolio-grid" class="grid gap-4 md:grid-cols-3">
+<div class="card rounded-3xl p-8 text-center text-sm text-zinc-400 md:col-span-3">Memuat portfolio…</div>
 </div>
 </section>
 
@@ -98,6 +96,23 @@ html{scroll-behavior:smooth}body{font-family:Inter,sans-serif;background:#09090b
 <div>© <span id="year"></span> Pondik Cat Duco & Body Repair</div>
 </div>
 </footer>
-<script>document.getElementById('year').textContent=new Date().getFullYear()</script>
+<script>
+const SUPABASE_URL="https://evtkeyfjgqwarsmlzrkh.supabase.co";
+const SUPABASE_KEY="sb_publishable_7lGio_RVVgkVASYYyBHQIg_GvL-8ELD";
+const PONDIK_TENANT_ID="06e84dc9-68c3-4ad4-aa1b-06a7c4e46f99";
+const sbScript=document.createElement('script');
+sbScript.src='https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2';
+sbScript.onload=async()=>{
+  const sb=window.supabase.createClient(SUPABASE_URL,SUPABASE_KEY);
+  const grid=document.getElementById('portfolio-grid');
+  const {data,error}=await sb.from('portfolio_items').select('id,title,description,image_url,sort_order').eq('tenant_id',PONDIK_TENANT_ID).eq('is_active',true).order('sort_order',{ascending:true}).order('created_at',{ascending:false});
+  if(error||!data?.length){
+    grid.innerHTML='<div class="card rounded-3xl p-8 text-center text-sm text-zinc-400 md:col-span-3">Portfolio sedang disiapkan. Foto pekerjaan Pondik akan tampil di sini.</div>';
+    return;
+  }
+  grid.innerHTML=data.map(item=>`<article class="group relative overflow-hidden rounded-3xl border border-white/10 bg-zinc-900"><img src="${item.image_url}" alt="${(item.title||'Portfolio Pondik Cat Duco').replace(/"/g,'&quot;')}" class="h-72 w-full object-cover transition duration-500 group-hover:scale-105"><div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black via-black/70 to-transparent p-5 pt-20"><h3 class="font-extrabold">${item.title||'Pondik Cat Duco'}</h3>${item.description?`<p class="mt-1 text-xs text-zinc-300">${item.description}</p>`:''}</div></article>`).join('');
+};
+document.getElementById('year').textContent=new Date().getFullYear();
+</script>
 </body>
 </html>
